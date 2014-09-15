@@ -1,24 +1,37 @@
-var expect = require('chai').expect;
-var lib = require('../index');
+var chai = require('chai');
+var expect = chai.expect;
 
-describe('fullName()', function() {
+var functions = require('../index');
+var getFullName = functions.getFullName;
+var getFullNameArray = functions.getFullNameArray;
 
-  it('returns a person\'s full name', function() {
-    // 1. create anything that needs to be sent as
-    // an input/argument to the `fullName` function
-    // here.
-    // 2. pass the required info to the function and
-    // get the result.
-    // 3. make some sort of expectation based on the
-    // result.
+describe('Quiz functions', function() {
+  it("takes a person object with the properties 'firstName' and 'lastName' and returns their full name", function() {
+    var person1 = {
+      firstName: "Blothrog",
+      lastName: "The Impaler"
+    };
+
+    var fullName = "Blothrog The Impaler";
+
+    expect(getFullName(person1)).to.eql(fullName);
   });
 
-});
+  it("takes an array of people and returns an array of their full names", function() {
+    var person1 = {
+      firstName: "Blothrog",
+      lastName: "The Impaler"
+    };
+    var person2 = {
+      firstName: "Maktar",
+      lastName: "The Infinite"
+    };
 
-describe('fullNames()', function() {
+    var arrayOfPeople = [person1, person2];
+    var person1FullName = "Blothrog The Impaler";
+    var person2FullName = "Maktar The Infinite";
+    var arrayOfFullNames = [person1FullName, person2FullName];
 
-  it ('returns all people\'s full names', function() {
-    // follow the same procedure as above.
+    expect(getFullNameArray(arrayOfPeople)).to.eql(arrayOfFullNames);
   });
-
 });
