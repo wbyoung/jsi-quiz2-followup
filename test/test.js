@@ -25,28 +25,31 @@ describe('getFullName()', function() {
 describe('getFullNames()', function() {
 
   it ('returns all people\'s full names', function() {
-    // follow the same procedure as above.
-    // 1. create anything that needs to be sent as
-    // an input/argument to the `fullName` function
-    // here.
-    // 2. pass the required info to the function and
-    // get the result.
-    // 3. make some sort of expectation based on the
-    // result.
     var lesl = { firstName: 'Leslie', lastName: 'Strauss' };
     var andrea = {};
     andrea.firstName = 'Andrea';
     andrea.lastName = 'Moulding';
     var disciples = [lesl, andrea];
-    disciples.push({
-      firstName: 'Steve',
-      lastName: 'Young'
-    });
     expect(lib.getFullNames(disciples)).to.eql([
       'Leslie Strauss',
-      'Andrea Moulding',
-      'Steve Young'
+      'Andrea Moulding'
     ]);
   });
 
+});
+
+describe('getLast4OfSSNs()', function() {
+  it('gets people\'s SSNs', function() {
+    var people = [{
+      firstName: 'John',
+      lastName: 'Doe',
+      ssn: '000-31-3912'
+    },{
+      firstName: 'Jane',
+      lastName: 'Doe',
+      ssn: '000-31-0000'
+    }];
+    var result = lib.getLast4OfSSNs(people);
+    expect(result).to.eql(['3912', '0000']);
+  });
 });

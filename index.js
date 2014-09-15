@@ -2,12 +2,13 @@
  * @typedef {Object} Person
  * @property {String} firstName The person's first name.
  * @property {String} lastName The person's last name.
+ * @property {String} ssn The person's SSN.
  */
 
 /**
  * Calculate a person's full name.
  *
- * @param {Person} person A person.
+ * @param {Person} person - A person.
  * @return {String} The person's full name.
  */
 var getFullName =
@@ -26,17 +27,21 @@ module.exports.getFullName = function(person) {
 /**
  * Calculate many people's full names.
  *
- * @param {Array.<Person>} people The people.
+ * @param {Array.<Person>} people - The people.
  * @return {Array.<String>} The people's full names.
  */
 module.exports.getFullNames = function(people) {
   return people.map(getFullName);
 };
 
-  people.forEach(function(person) {
-    var fullName = getFullName(person);
-    fullNames.push(fullName);
+/**
+ * Calculate many people's SSNs (last 4).
+ *
+ * @param {Array.<Person>} people - The people.
+ * @return {Array.<String>} The people's SSNs.
+ */
+module.exports.getLast4OfSSNs = function(people) {
+  return people.map(function(person) {
+    return person.ssn.slice(-4);
   });
-
-  return fullNames;
 };
