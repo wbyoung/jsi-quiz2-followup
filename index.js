@@ -10,19 +10,32 @@
  * @param {Person} person A person.
  * @return {String} The person's full name.
  */
-module.exports.fullName = function(person) {
-
+var getFullName =
+module.exports.getFullName = function(person) {
+  var names = [person.firstName, person.lastName];
+  return names.join(' ');
+  // this used to look like this, but someone decided
+  // to use fancy array stuff above which just makes
+  // this code so much more confusing! perhaps we should
+  // change it back.
+  // return person.firstName + ' ' + person.lastName;
 };
 
+
+
 /**
- * Calculate many people's first names.
+ * Calculate many people's full names.
  *
  * @param {Array.<Person>} people The people.
- * @return {Array.<String>} The people's first names.
+ * @return {Array.<String>} The people's full names.
  */
-module.exports.fullNames = function(people) {
-  // if you're having trouble here, slow down. don't just guess and throw code
-  // in. one thing that is often helpful is to write out the steps of what you
-  // want to do in comments, then take the comments one by one and translate
-  // them into the required steps.
+module.exports.getFullNames = function(people) {
+  var fullNames = [];
+
+  people.forEach(function(person) {
+    var fullName = getFullName(person);
+    fullNames.push(fullName);
+  });
+
+  return fullNames;
 };
