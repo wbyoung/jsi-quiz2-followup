@@ -1,5 +1,7 @@
 var expect = require('chai').expect;
-var lib = require('../index');
+var functions = require('../index');
+var fullName = functions.fullName
+var fullNames = functions.fullNames
 
     var name1 = {};
     var name2 = {};
@@ -29,6 +31,8 @@ describe('fullNames()', function() {
 
   it ('returns all people\'s full names', function() {
     // follow the same procedure as above.
+    var result = fullNames(nameArray);
+    expect(result).to.eql(['Andrea Moulding', 'Bob Vanderbuilt', 'Suzie Little']);
   });
 
 });
