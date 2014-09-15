@@ -11,7 +11,8 @@
  * @return {String} The person's full name.
  */
 module.exports.fullName = function(person) {
-
+  var mergeName = person.fistName + person.lastName
+  return mergeName
 };
 
 /**
