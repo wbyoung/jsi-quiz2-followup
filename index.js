@@ -30,7 +30,8 @@ module.exports.getFullName = function(person) {
  * @return {Array.<String>} The people's full names.
  */
 module.exports.getFullNames = function(people) {
-  var fullNames = [];
+  return people.map(getFullName);
+};
 
   people.forEach(function(person) {
     var fullName = getFullName(person);
