@@ -1,28 +1,64 @@
 /**
- * @typedef {Object} Person
- * @property {String} firstName The person's first name.
- * @property {String} lastName The person's last name.
- */
-
-/**
- * Calculate a person's full name.
+ * A function that takes a 'person' object with, the properties 'firstName'
+ * and 'lastName,' and returns their full name.
  *
- * @param {Person} person A person.
+ *
+ * @function getFullName
+ * @param {Object} person - A 'person' object with properties 'firstName' and 'lastName.'
  * @return {String} The person's full name.
+ *
+ * @example
+ *
+ * var person1 = {
+ *  firstName: "Blothrog",
+ *  lastName: "The Impaler"
+ * };
+ *
+ * getFullName(person1);
+ *
+ * //=> "Blothrog The Impaler"
+ *
+ *
  */
-module.exports.fullName = function(person) {
-
+var getFullName = function(person) {
+  var fullName = person.firstName + ' ' + person.lastName;
+  return fullName;
 };
+
 
 /**
- * Calculate many people's first names.
+ * A function that takes an array of 'people' objects, and returns a new
+ * array of their full names.
  *
- * @param {Array.<Person>} people The people.
- * @return {Array.<String>} The people's first names.
+ * @function getFullNameArray
+ * @param {Array} arrayOfPeople - An array of 'person' objects with properties 'firstName' and 'lastName.'
+ * @return {Array} An array of full names.
+ *
+ * @example
+ *
+ * var person1 = {
+ *  firstName: "Blothrog",
+ *  lastName: "The Impaler"
+ * };
+ * 
+ * var person2 = {
+ *  firstName: "Maktar",
+ *  lastName: "The Infinite"
+ * };
+ *
+ * var arrayOfPeople = [ person1, person2 ];
+ *
+ * getFullNameArray(arrayOfPeople);
+ *
+ * //=> [ 'Blothrog The Impaler', 'Maktar The Infinite' ]
+ *
  */
-module.exports.fullNames = function(people) {
-  // if you're having trouble here, slow down. don't just guess and throw code
-  // in. one thing that is often helpful is to write out the steps of what you
-  // want to do in comments, then take the comments one by one and translate
-  // them into the required steps.
+var getFullNameArray = function(arrayOfPeople) {
+  return arrayOfPeople.map(getFullName);
 };
+
+module.exports = {
+  getFullName: getFullName,
+  getFullNameArray: getFullNameArray
+};
+

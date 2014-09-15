@@ -1,13 +1,21 @@
 {
-  "name": "jsi-quiz2-followup",
+  "name": "idonotcare",
   "version": "1.0.0",
-  "description": "",
+  "description": "JSI: Quiz #2",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
-  "author": "Whitney Young",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/austint/idonotcare.git"
+  },
+  "author": "Austin Trafficante",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/austint/idonotcare/issues"
+  },
+  "homepage": "https://github.com/austint/idonotcare",
   "dependencies": {
     "chai": "^1.9.1",
     "mocha": "^1.21.4"
